@@ -1,0 +1,70 @@
+-- Question 3
+-- Movella Assesment
+
+
+-- Creating a Table Employee
+CREATE TABLE Employee ( 
+    Emp_Id int,  --could have made this Primary Key like Emp_Id int Primary Key 
+    Names varchar(255), 
+    Department varchar(255), 
+    Grade int, 
+    Salary int, 
+    Gender varchar(1) 
+);
+
+-- Inserting Values
+Insert Into Employee Values(1,'Robert','Computer Science',100,100000,'M');
+Insert Into Employee Values(2,'Ram','Information Technology',101,134000,'M');
+Insert Into Employee Values(3,'Alex','Computer Science',200,123456,'M');
+Insert Into Employee Values(4,'Radha','Information Technology',201,23456,'F');
+Insert Into Employee Values(5,'Santhi','Civil',300,234567,'F');
+Insert Into Employee Values(6,'Madhavi','BioTech',301,234567,'F');
+
+-- Displaying Values
+Select * From Employee;
+
+
+-- Creating table Employees
+CREATE TABLE Student ( 
+    Student_Id int , --could have made this Primary Key like Student_Id int Primary Key 
+    Class_Teacher_Employee_Id int, 
+    Subject1 varchar(1), 
+    Subject2 varchar(1), 
+    Subject3 varchar(1) 
+     --could have made this Foreign Key Class_Teacher_Employee_Id  
+    --FOREIGN KEY (Student_Id) REFERENCES Employee(Emp_Id) 
+    -- did not make it foreign key and primary key because there were many repeated values where integrity issues would've been there 
+);
+
+-- Inserting Values
+Insert Into Student Values(1,1,'P','P','F');
+Insert Into Student Values(2,1,'P','F','P');
+Insert Into Student Values(3,2,'P','P','P');
+Insert Into Student Values(4,3,'F','F','F');
+Insert Into Student Values(5,4,'P','P','P');
+Insert Into Student Values(6,5,'P','P','F');
+Insert Into Student Values(7,4,'P','P','P');
+Insert Into Student Values(8,5,'P','P','P');
+Insert Into Student Values(9,4,'P','P','P');
+Insert Into Student Values(4,3,'F','F','F');
+
+-- displaying Values
+Select * From Student;
+
+
+-- a) Write a query to fetch Employee name whose grade greater than 200.
+Select Names from Employee where Grade>200;
+-- b) Write a query to fetch the department name where only male staff available.
+Select distinct Department from Employee where Gender='M' and Department Not In ( Select distinct Department from Employee where Gender<>'M');
+
+-- c) Write a query to fetch the second highest salaried employer.
+Select Names,Salary from Employee where Salary=(Select Max(Salary) As Salary from Employee where Salary<(Select Max(Salary) from Employee));
+
+-- d) Write a query to fetch the employ details who did not assigned with any students.
+Select * from Employee where Emp_Id Not In(Select Class_Teacher_Employee_Id From Student);
+
+-- e) Write a query to fetch the student who passed in all three subjects.
+Select * From Student where Subject1='P' and Subject2='P' and Subject3='P';
+
+-- f) Write a query to fetch the top employee details where all of his students passed in the subjects.
+Select * from Employee where Emp_Id In (Select Class_Teacher_Employee_Id From Student where Subject1='P' and Subject2='P' and Subject3='P');
