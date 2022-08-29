@@ -1,6 +1,7 @@
 The second question is :-
 
 2.File Parsing
+
 A webserver log file contains multiple log entries of various activities. Each log entry is begins with
 either
 INFO, DEBUG or ERROR. Write a program that accepts a log file and writes 3 different log files - one
