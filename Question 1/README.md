@@ -15,8 +15,12 @@ Each rule can be a different. The total of all rules should be 100 . You can dec
 weightage can be assigned to each rule. The password strength should be printed based on the
 score of all rules < 50 LOW, 50-75 - AVERAGE 75-90 - GOOD 90+ - VERY GOOD
 
+
 If the score is less than 75, the program should display the two rules that contributed lowest to the
 score.
 -------------------------------------------------------------------------------------------------------
 
-I have done it on Jupyter notebook. You can simply run it on Google colab or Jupyter notebook. It will give you the desired result.
+
+I have done it on Jupyter notebook. 
+You can simply run it on Google colab or Jupyter notebook. 
+It will give you the desired result.
