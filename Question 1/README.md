@@ -18,6 +18,7 @@ score of all rules < 50 LOW, 50-75 - AVERAGE 75-90 - GOOD 90+ - VERY GOOD
 
 If the score is less than 75, the program should display the two rules that contributed lowest to the
 score.
+
 -------------------------------------------------------------------------------------------------------
 
 
