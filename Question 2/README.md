@@ -15,6 +15,7 @@ I have created a sample csv file named LogFile.csv (attached in the repository).
 1. Serial No.
 2. Time
 3. Log
+
 You can run python script by downloading that file as well. I have segredated all the three type of log into different file along with date as csv files namely:-
 1. Debug.csv
 2. Error.csv
